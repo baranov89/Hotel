@@ -13,33 +13,29 @@ struct HotelView: View {
     var body: some View {
         NavigationStack {
             if let hotel = vm.hotel {
-                ScrollView(showsIndicators: false){
+                ScrollView(showsIndicators: false) {
                     VStack {
-                        VStack {
-                            Text("Отель")
-                                .font(.system(size: 22, design: .rounded))
+                        VStack(alignment: .leading) {
+                                Text("Отель")
+                                    .font(.system(size: 22, design: .rounded))
+                                    .frame(maxWidth: .infinity)
                             CaruselPhotoView(urlPhoto: hotel.imageUrls )
                                 .frame(width: UIScreen.main.bounds.width - 32, height: 245)
                                 .cornerRadius(15)
                             RatingView(rating: hotel.rating, ratingDescription: hotel.ratingName)
-                            HStack {
-                                Text(hotel.name)
-                                    .font(.system(size: 22, weight: .regular))
-                                Spacer()
-                            }
-                            .padding(.leading)
-                            BasicData(adress: hotel.adress, price: hotel.minimalPrice)
+                            NameView(name: hotel.name)
+                            AdressView(adress: hotel.adress, price: hotel.minimalPrice)
+                            PriceView(price: hotel.minimalPrice)
                         }
                         .padding(.bottom)
+                        .padding(.horizontal)
                         .background(.white)
                         .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
-                        .ignoresSafeArea(edges: [.top])
                         VStack{
                             Text("Об отеле")
                                 .font(.system(size: 22, design: .rounded).bold())
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .multilineTextAlignment(.leading)
-                            PeculiaritiesHotelView(peculiarities: hotel.aboutTheHotel.peculiarities)
+                            PeculiaritiesHotelView(data: hotel.aboutTheHotel.peculiarities)
                             HStack {
                                 Text(hotel.aboutTheHotel.description)
                                     .frame(alignment: .leading)
@@ -53,21 +49,25 @@ struct HotelView: View {
                         .cornerRadius(20)
                         Spacer()
                         Button { } label: {
-                            Text("К выбору номера")
-                                .font(.system(size: 16, weight: .regular))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 50)
-                                .background(.blue)
-                                .cornerRadius(20)
-                                .padding(.horizontal)
-                                .padding(.top)
+                            NavigationLink(value: hotel.name) {
+                                Text("К выбору номера")
+                                    .font(.system(size: 16, weight: .regular))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 50)
+                                    .background(.blue)
+                                    .cornerRadius(20)
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                            }
                         }
                         .frame(maxWidth: .infinity)
                         .background(.white)
                     }
-                    .ignoresSafeArea(edges: [.bottom])
                     .background(.gray.opacity(0.2))
+                }
+                .navigationDestination(for: String.self) { value in
+                    NumberView(hotelName: value)
                 }
             }
         }

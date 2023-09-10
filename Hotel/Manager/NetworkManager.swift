@@ -8,6 +8,10 @@
 import Foundation
 
 class NetworkManager {
+    static var instance = NetworkManager()
+    
+    private init() {}
+    
     func fetch<T: Codable>(type: T.Type, with request: URLRequest) async -> Result<T, Error> {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)

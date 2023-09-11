@@ -23,8 +23,12 @@ struct PriceView: View {
                 .font(.system(size: 16, design: .rounded))
                 .frame(maxHeight: .infinity, alignment: .bottom)
         }
-//        .frame(maxWidth: .infinity)
         .frame(height: 30)
-//        .padding(.leading)
+    }
+}
+
+struct PriceView_Previews: PreviewProvider {
+    static var previews: some View {
+        PriceView(price: 4444)
     }
 }

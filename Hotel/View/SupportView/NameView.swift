@@ -16,7 +16,7 @@ struct NameView: View {
                 .font(.system(size: 22, weight: .regular))
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
-                .padding(.bottom, 2)
+                .padding(.bottom, 5)
         }
     }
 }

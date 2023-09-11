@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AdressView: View {
     var adress: String
-    var price: Int
     
     var body: some View {
         Button { } label: {
@@ -23,6 +22,6 @@ struct AdressView: View {
 
 struct BasicData_Previews: PreviewProvider {
     static var previews: some View {
-        AdressView(adress: "sdasd", price: 12)
+        AdressView(adress: "sdasd")
     }
 }

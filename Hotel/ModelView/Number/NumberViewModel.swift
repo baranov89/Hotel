@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class NumberViewModel: ObservableObject {
+    @Published private(set) var numbers: NumberModel?
     private let client = NetworkManager.instance
-    @MainActor @Published private(set) var numbers: NumberModel?
     
     var request: URLRequest = {
         let urlString = "https://run.mocky.io/v3/f9a38183-6f95-43aa-853a-9c83cbb05ecd"

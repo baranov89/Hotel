@@ -27,6 +27,8 @@ struct CaruselPhotoView: View {
                 }
             }
         }
+        .frame(width: UIScreen.main.bounds.width - 32, height: 245)
+        .cornerRadius(15)
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }

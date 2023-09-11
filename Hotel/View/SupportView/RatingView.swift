@@ -24,7 +24,7 @@ struct RatingView: View {
             .cornerRadius(5)
             Spacer()
         }
-        .padding(.top)
+//        .padding(.top)
     }
 }
 

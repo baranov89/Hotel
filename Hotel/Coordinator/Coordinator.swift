@@ -10,7 +10,6 @@ import SwiftUI
 
 @MainActor
 final class Coordinator: ObservableObject {
-    
     @Published var path = NavigationPath()
     @Published var hotelName: String?
     @Published var room: String?

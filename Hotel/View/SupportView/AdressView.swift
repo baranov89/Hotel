@@ -22,6 +22,6 @@ struct AdressView: View {
 
 struct BasicData_Previews: PreviewProvider {
     static var previews: some View {
-        AdressView(adress: "sdasd")
+        AdressView(adress: "street")
     }
 }

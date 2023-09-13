@@ -32,8 +32,6 @@ struct TagsView: View {
         }
         .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
     }
-    
- 
 }
 
 struct TagsView_Previews: PreviewProvider {

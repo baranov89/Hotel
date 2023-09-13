@@ -11,10 +11,10 @@ struct TouristModel: Identifiable {
     var id = UUID().uuidString
     var titleName: String
     var isOpen: Bool
-    var name: String = "Иван"
-    var LastName: String = "Иванов"
-    var DateOfBirth: String = ""
-    var citizenship: String = ""
-    var passportNumber: String = ""
-    var passportValidityPeriod: String = ""
+    var name: String
+    var LastName: String
+    var DateOfBirth: String
+    var citizenship: String
+    var passportNumber: String
+    var passportValidityPeriod: String 
 }

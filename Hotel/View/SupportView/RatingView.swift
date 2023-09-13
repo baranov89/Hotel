@@ -24,13 +24,12 @@ struct RatingView: View {
             .cornerRadius(5)
             Spacer()
         }
-//        .padding(.top)
     }
 }
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: 0, ratingDescription: "asd")
+        RatingView(rating: 5, ratingDescription: "Превосходно")
     }
 }
 	

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct TouristInformationItemView: View {
-    var text: String
     @Binding var linkToData: String
+    @Binding var isValid: Bool
+    var text: String
+    var mask: String?
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -21,18 +24,22 @@ struct TouristInformationItemView: View {
             TextField(text, text: $linkToData)
                 .onChange(of: linkToData, perform: { _ in
                     DispatchQueue.main.async {
-                        linkToData = linkToData.formattedMask(text: linkToData, mask: "+7 (XXX) XXX-XX-XX")
+                        linkToData = linkToData.formattedMask(mask: mask)
                     }
                 })
                 .foregroundColor(.black)
                 .font(.system(size: 16))
         }
-        .grayTextField()
+        .frame(height: 50)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal)
+        .background((linkToData == "" && isValid) ? .red.opacity(0.1) : Color(hex: 0xF6F6F9))
+        .cornerRadius(10)
     }
 }
 
 struct TouristInformationItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TouristInformationItemView(text: "Имя", linkToData: .constant("Иван"))
+        TouristInformationItemView(linkToData: .constant("Данные"), isValid: .constant(false), text: "телефон")
     }
 }

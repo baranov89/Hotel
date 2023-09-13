@@ -11,8 +11,9 @@ struct HotelsView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var vm = HotelViewModel()
     @State private var triger = false
+    
     var body: some View {
-        VStack{
+        VStack {
             if let hotel = vm.hotel {
                 ScrollView(showsIndicators: false) {
                     VStack {
@@ -60,7 +61,6 @@ struct HotelsView: View {
                     }
                     .background(.gray.opacity(0.2))
                 }
-                
             }
         }
         .navigationBarTitleDisplayMode(.inline)

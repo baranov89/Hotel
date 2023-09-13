@@ -28,7 +28,6 @@ struct TourInformationView: View {
         .background(.white)
         .cornerRadius(12)
     }
-
 }
 
 struct TourInformationView_Previews: PreviewProvider {

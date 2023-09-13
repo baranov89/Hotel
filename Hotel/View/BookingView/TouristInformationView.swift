@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct TouristInformationView: View {
-    @StateObject var vm = TouristInformationViewModel()
+    @StateObject var vm: BookingViewModel
+    @Binding var isValid: Bool
+    
+    init(data: BookingViewModel, isValid: Binding<Bool>)
+    {
+        self._vm = StateObject(wrappedValue: data)
+        self._isValid = Binding(projectedValue: isValid)
+    }
     
     var body: some View {
         VStack {
@@ -34,12 +41,12 @@ struct TouristInformationView: View {
                     }
                     if tourist.isOpen {
                         VStack {
-                            TouristInformationItemView(text: "Имя", linkToData: $tourist.name)
-                            TouristInformationItemView(text: "Фамилия", linkToData: $tourist.LastName)
-                            TouristInformationItemView(text: "Дата рождения", linkToData: $tourist.DateOfBirth)
-                            TouristInformationItemView(text: "Гражданство", linkToData: $tourist.citizenship)
-                            TouristInformationItemView(text: "Номер загран паспорта", linkToData: $tourist.passportNumber)
-                            TouristInformationItemView(text: "Срок действия загран паспорта", linkToData: $tourist.passportValidityPeriod)
+                            TouristInformationItemView(linkToData: $tourist.name, isValid: $isValid, text: "Имя")
+                            TouristInformationItemView(linkToData: $tourist.LastName, isValid: $isValid, text: "Фамилия")
+                            TouristInformationItemView(linkToData: $tourist.DateOfBirth, isValid: $isValid, text: "Дата рождения", mask: "XX.XX.XXXX")
+                            TouristInformationItemView(linkToData: $tourist.citizenship, isValid: $isValid, text: "Гражданство")
+                            TouristInformationItemView(linkToData: $tourist.passportNumber, isValid: $isValid, text: "Номер загран паспорта", mask: "XXXX-XXXX")
+                            TouristInformationItemView(linkToData: $tourist.passportValidityPeriod, isValid: $isValid, text: "Срок действия загран паспорта", mask: "XX.XX.XXXX")
                         }
                     }
                 }
@@ -68,12 +75,11 @@ struct TouristInformationView: View {
             .background(.white)
             .cornerRadius(10)
         }
-        
     }
 }
 
 struct TouristInformationView_Previews: PreviewProvider {
     static var previews: some View {
-        TouristInformationView()
+        TouristInformationView(data: BookingViewModel(), isValid: .constant(false))
     }
 }

@@ -10,8 +10,8 @@ import SwiftUI
 struct BookingView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var vm = BookingViewModel()
-//    var room: String
-    @State private var triger = false
+    @State var isValid = false
+    
     var body: some View {
         ScrollView {
             if let bookingDatails = vm.bookingDetails {
@@ -27,9 +27,18 @@ struct BookingView: View {
                     .cornerRadius(12)
                     TourInformationView(vm: vm, roomName: coordinator.room ?? "asdasd")
                     BuyerInformationView()
-                    TouristInformationView()
+                    TouristInformationView(data: vm, isValid: $isValid)
                     TourCostView(vm: vm)
-                    Button { coordinator.goPayment() } label: {
+                    Button {
+                        if let tourist = vm.tourist.first {
+                            isValid = false
+                            if tourist.name != "" && tourist.LastName != "" && tourist.DateOfBirth != "" && tourist.passportNumber != "" && tourist.citizenship != "" && tourist.passportValidityPeriod != "" {
+                                coordinator.goPayment()
+                            } else {
+                                isValid = true
+                            }
+                        }
+                    } label: {
                         Text("Оплатить \(vm.fullPrice ?? 0)")
                             .font(.system(size: 16, weight: .regular))
                             .foregroundColor(.white)
@@ -47,10 +56,6 @@ struct BookingView: View {
                 .padding(.top, 10)
             }
         }
-//        .navigationDestination(isPresented: $triger, destination: {
-//            PaymentView()
-//                .toolbarRole(.editor)
-//        })
         .task {
             await vm.fetchBookingDetails()
         }
@@ -64,8 +69,8 @@ struct BookingView: View {
     }
 }
 
-//struct BookingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BookingView(room: "Стандартный номер")
-//    }
-//}
+struct BookingView_Previews: PreviewProvider {
+    static var previews: some View {
+        BookingView()
+    }
+}

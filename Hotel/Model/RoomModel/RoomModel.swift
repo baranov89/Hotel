@@ -11,7 +11,6 @@ struct RoomModel: Codable {
     let rooms: [Room]
 }
 
-// MARK: - Room
 struct Room: Codable, Identifiable {
     let id: Int
     let name: String

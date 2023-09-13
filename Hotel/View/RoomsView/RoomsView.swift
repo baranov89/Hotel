@@ -11,14 +11,14 @@ struct RoomsView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var vm = RoomsViewModel()
     @State var roomName: String = ""
-//    var hotelName: String
+    
     var body: some View {
-        ZStack{
+        ZStack {
             Color.gray.opacity(0.2)
                 .ignoresSafeArea(edges: .bottom)
             ScrollView(showsIndicators: false) {
-                VStack{
-                    if let numbers = vm.numbers {
+                VStack {
+                    if let numbers = vm.rooms {
                         VStack(spacing: 10) {
                             ForEach(numbers.rooms) { room in
                                 VStack(alignment: .leading){
@@ -62,7 +62,6 @@ struct RoomsView: View {
                                 .background(.white)
                                 .cornerRadius(20)
                             }
-                            
                         }
                         .padding(.top, 10)
                     }
@@ -84,8 +83,8 @@ struct RoomsView: View {
     }
 }
 
-//struct NumberView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RoomsView(hotelName: "asdasd")
-//    }
-//}
+struct NumberView_Previews: PreviewProvider {
+    static var previews: some View {
+        RoomsView()
+    }
+}

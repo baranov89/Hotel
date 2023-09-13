@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-class NumberViewModel: ObservableObject {
-    @Published private(set) var numbers: NumberModel?
+class RoomsViewModel: ObservableObject {
+    @Published private(set) var numbers: RoomModel?
     private let client = NetworkManager.instance
     
     var request: URLRequest = {
@@ -19,7 +19,7 @@ class NumberViewModel: ObservableObject {
     }()
     
     func fetchHNumbers() async {
-        let response = await client.fetch(type: NumberModel.self, with: request)
+        let response = await client.fetch(type: RoomModel.self, with: request)
         switch response {
         case .success(let success):
             Task { @MainActor in

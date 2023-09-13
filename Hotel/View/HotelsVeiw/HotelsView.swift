@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct HotelView: View {
+struct HotelsView: View {
+    @EnvironmentObject var coordinator: Coordinator
     @StateObject private var vm = HotelViewModel()
     @State private var triger = false
     var body: some View {
-        NavigationStack {
+        VStack{
             if let hotel = vm.hotel {
                 ScrollView(showsIndicators: false) {
                     VStack {
                         VStack(alignment: .leading) {
-                            CaruselPhotoView(urlPhoto: hotel.imageUrls )
+                            CaruselView(urlPhoto: hotel.imageUrls )
                             RatingView(rating: hotel.rating, ratingDescription: hotel.ratingName)
                             NameView(name: hotel.name)
                             AdressView(adress: hotel.adress)
@@ -43,8 +44,7 @@ struct HotelView: View {
                         .padding()
                         .background(.white)
                         .cornerRadius(20)
-                        Spacer()
-                        Button { triger = true } label: {
+                        Button { coordinator.goRomms(hotelName: hotel.name) } label: {
                             Text("К выбору номера")
                                 .font(.system(size: 16, weight: .regular))
                                 .foregroundColor(.white)
@@ -59,20 +59,15 @@ struct HotelView: View {
                         .background(.white)
                     }
                     .background(.gray.opacity(0.2))
-                    .navigationDestination(isPresented: $triger) {
-                        NumberView(hotelName: hotel.name)
-                    }
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("Отель")
-                            .font(.title.weight(.medium))
-                    }
-                }
-                .navigationDestination(for: String.self) { value in
-                    NumberView(hotelName: value)
-                }
+                
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Отель")
+                    .font(.system(size: 18)).fontWeight(.medium)
             }
         }
         .task {
@@ -81,11 +76,7 @@ struct HotelView: View {
     }
 }
 
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
-    }
-}
+
 
 struct RoundedCorner: Shape {
     var radius: CGFloat = .infinity
@@ -98,6 +89,6 @@ struct RoundedCorner: Shape {
 
 struct HotelView_Previews: PreviewProvider {
     static var previews: some View {
-        HotelView()
+        HotelsView()
     }
 }

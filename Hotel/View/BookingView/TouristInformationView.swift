@@ -9,13 +9,13 @@ import SwiftUI
 
 struct TouristInformationView: View {
     @StateObject var vm = TouristInformationViewModel()
-    var x = false
+    
     var body: some View {
         VStack {
             ForEach($vm.tourist) { $tourist in
                 VStack{
                     Button {
-                        withAnimation(.easeInOut) {
+                        withAnimation(.default) {
                             tourist.isOpen.toggle()
                         }
                     } label: {
@@ -24,7 +24,12 @@ struct TouristInformationView: View {
                                 .font(.system(size: 22))
                                 .foregroundColor(.black)
                             Spacer()
-                            Image(systemName: tourist.isOpen ? "chevron.up" : "chevron.down")
+                            Image(systemName:  "chevron.down")
+                                .rotationEffect(.degrees(tourist.isOpen ? 180 : 360))
+                                .foregroundColor(.blue)
+                                .frame(width: 24, height: 24)
+                                .background(Color(hex: 0xD3E5F5))
+                                .cornerRadius(6)
                         }
                     }
                     if tourist.isOpen {
@@ -55,7 +60,7 @@ struct TouristInformationView: View {
                         .background(Color(hex: 0x0D72FF, alpha: 1))
                         .cornerRadius(6)
                 }
-                .animation(nil, value: UUID())
+                .animation(nil, value:  UUID())
             }
             .frame(height: 58)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -63,6 +68,7 @@ struct TouristInformationView: View {
             .background(.white)
             .cornerRadius(10)
         }
+        
     }
 }
 

@@ -37,7 +37,6 @@ class TagsViewModel: ObservableObject {
                 groupedItems.append(tempItems)
                 tempItems.removeAll()
                 tempItems.append(item)
-                
             }
         }
         groupedItems.append(tempItems)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NumberModel: Codable {
+struct RoomModel: Codable {
     let rooms: [Room]
 }
 

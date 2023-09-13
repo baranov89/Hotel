@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CaruselPhotoView: View {
+struct CaruselView: View {
     var urlPhoto: [String] = []
     
     var body: some View {
@@ -36,6 +36,6 @@ struct CaruselPhotoView: View {
 
 struct CaruselPhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        CaruselPhotoView()
+        CaruselView()
     }
 }

@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct NumberView: View {
-    @StateObject private var vm = NumberViewModel()
-    @State private var triger = false
+struct RoomsView: View {
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject private var vm = RoomsViewModel()
     @State var roomName: String = ""
-    var hotelName: String
+//    var hotelName: String
     var body: some View {
         ZStack{
             Color.gray.opacity(0.2)
@@ -22,7 +22,7 @@ struct NumberView: View {
                         VStack(spacing: 10) {
                             ForEach(numbers.rooms) { room in
                                 VStack(alignment: .leading){
-                                    CaruselPhotoView(urlPhoto: room.imageUrls )
+                                    CaruselView(urlPhoto: room.imageUrls )
                                     NameView(name: room.name)
                                     TagsView(data: room.peculiarities)
                                     Button { } label: {
@@ -43,7 +43,7 @@ struct NumberView: View {
                                     PriceView(price: room.price)
                                     Button {
                                         roomName = room.name
-                                        triger = true
+                                        coordinator.goBooking(room: roomName)
                                     } label: {
                                         Text("Выбрать номмер")
                                             .font(.system(size: 16, weight: .regular))
@@ -56,10 +56,6 @@ struct NumberView: View {
                                     }
                                     .frame(maxWidth: .infinity)
                                     .background(.white)
-                                }
-                                .navigationDestination(isPresented: $triger) {
-                                    BookingView(room: roomName)
-                                        .toolbarRole(.editor)
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding()
@@ -76,8 +72,8 @@ struct NumberView: View {
         .navigationBarTitleDisplayMode(.automatic)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text(hotelName)
-                    .font(.headline)
+                Text(coordinator.hotelName ?? "sdasd")
+                    .font(.system(size: 18)).fontWeight(.medium)
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
@@ -88,8 +84,8 @@ struct NumberView: View {
     }
 }
 
-struct NumberView_Previews: PreviewProvider {
-    static var previews: some View {
-        NumberView(hotelName: "asdasd")
-    }
-}
+//struct NumberView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RoomsView(hotelName: "asdasd")
+//    }
+//}

@@ -15,7 +15,7 @@ struct TourCostView: View {
                 TourInformationItemView(key: "Тур", value: String(bookingDetails.tourPrice), alignment: .trailing)
                 TourInformationItemView(key: "Топливный сбор", value: String(bookingDetails.fuelCharge), alignment: .trailing)
                 TourInformationItemView(key: "Сервисный сбор", value: String(bookingDetails.serviceCharge), alignment: .trailing)
-                TourInformationItemView(key: "К оплате", value: vm.fulPrice, alignment: .trailing)
+                TourInformationItemView(key: "К оплате", value: String(vm.fullPrice ?? 0), alignment: .trailing)
             }
             .frame(maxWidth: .infinity)
             .padding()

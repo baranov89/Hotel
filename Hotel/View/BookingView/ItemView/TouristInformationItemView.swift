@@ -19,6 +19,11 @@ struct TouristInformationItemView: View {
                     .font(.system(size: 12))
             }
             TextField(text, text: $linkToData)
+                .onChange(of: linkToData, perform: { _ in
+                    DispatchQueue.main.async {
+                        linkToData = linkToData.formattedMask(text: linkToData, mask: "+7 (XXX) XXX-XX-XX")
+                    }
+                })
                 .foregroundColor(.black)
                 .font(.system(size: 16))
         }

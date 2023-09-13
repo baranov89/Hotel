@@ -10,9 +10,7 @@ import Foundation
 class BookingViewModel: ObservableObject {
     @Published var bookingDetails: BookingModel?
     private let client = NetworkManager.instance
-    var fulPrice: String {
-        return String(bookingDetails?.serviceCharge ?? 0 + (bookingDetails?.fuelCharge ?? 0)  + (bookingDetails?.tourPrice ?? 0))
-    }
+    var fullPrice: Int?
     
     var request: URLRequest = {
         let urlString = "https://run.mocky.io/v3/e8868481-743f-4eb2-a0d7-2bc4012275c8"
@@ -26,9 +24,14 @@ class BookingViewModel: ObservableObject {
         case .success(let success):
             Task { @MainActor in
                 bookingDetails = success
+                getFullPrice()
             }
         case .failure(let failure):
             print(failure.localizedDescription)
         }
+    }
+    
+    func getFullPrice() {
+        fullPrice = (bookingDetails?.serviceCharge ?? 0) + (bookingDetails?.fuelCharge ?? 0)  + (bookingDetails?.tourPrice ?? 0)
     }
 }

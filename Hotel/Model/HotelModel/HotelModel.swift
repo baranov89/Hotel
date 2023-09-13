@@ -16,7 +16,7 @@ struct HotelModel: Codable {
     let ratingName: String
     let imageUrls: [String]
     let aboutTheHotel: AboutTheHotel
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, adress
         case minimalPrice = "minimal_price"

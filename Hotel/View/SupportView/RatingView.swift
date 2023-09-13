@@ -32,4 +32,4 @@ struct RatingView_Previews: PreviewProvider {
         RatingView(rating: 5, ratingDescription: "Превосходно")
     }
 }
-	
+

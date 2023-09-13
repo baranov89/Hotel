@@ -16,7 +16,7 @@ struct BookingModel: Codable {
     let numberOfNights: Int
     let room, nutrition: String
     let tourPrice, fuelCharge, serviceCharge: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case hotelName = "hotel_name"

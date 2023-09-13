@@ -18,7 +18,7 @@ struct Room: Codable, Identifiable {
     let pricePer: String
     let peculiarities: [String]
     let imageUrls: [String]
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, price
         case pricePer = "price_per"

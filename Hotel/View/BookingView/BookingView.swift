@@ -10,7 +10,7 @@ import SwiftUI
 struct BookingView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var vm = BookingViewModel()
-    @State var isValid = false
+    @State var isValid = true
     
     var body: some View {
         ScrollView {
@@ -31,11 +31,11 @@ struct BookingView: View {
                     TourCostView(vm: vm)
                     Button {
                         if let tourist = vm.tourist.first {
-                            isValid = false
+                            isValid = true
                             if tourist.name != "" && tourist.LastName != "" && tourist.DateOfBirth != "" && tourist.passportNumber != "" && tourist.citizenship != "" && tourist.passportValidityPeriod != "" {
                                 coordinator.goPayment()
                             } else {
-                                isValid = true
+                                isValid = false
                             }
                         }
                     } label: {

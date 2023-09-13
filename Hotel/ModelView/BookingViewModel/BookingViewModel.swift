@@ -20,25 +20,27 @@ class BookingViewModel: ObservableObject {
     private let client = NetworkManager.instance
     var fullPrice: Int?
     private var array: [String] = ["Первый турист", "Второй турист", "Третий турист", "Четвертый турист", "Пятый турист"]
-   
-    init() {
-        bookingDetails = BookingModel(id: 1,
-                                      hotelName: "Лучший пятизвездочный отель в Хургаде, Египет",
-                                      hotelAdress: "Madinat Makadi, Safaga Road, Makadi Bay, Египет",
-                                      horating: 5,
-                                      ratingName: "Превосходно",
-                                      departure: "Турция",
-                                      arrivalCountry: "Россия",
-                                      tourDateStart: "22.09.2023",
-                                      tourDateStop: "29.09.2023",
-                                      numberOfNights: 7,
-                                      room: "Стандартный",
-                                      nutrition: "Все включено",
-                                      tourPrice: 234576,
-                                      fuelCharge: 2098,
-                                      serviceCharge: 4789)
-        getFullPrice()
-    }
+    
+    // if API doesn't work
+    
+    //    init() {
+    //        bookingDetails = BookingModel(id: 1,
+    //                                      hotelName: "Лучший пятизвездочный отель в Хургаде, Египет",
+    //                                      hotelAdress: "Madinat Makadi, Safaga Road, Makadi Bay, Египет",
+    //                                      horating: 5,
+    //                                      ratingName: "Превосходно",
+    //                                      departure: "Турция",
+    //                                      arrivalCountry: "Россия",
+    //                                      tourDateStart: "22.09.2023",
+    //                                      tourDateStop: "29.09.2023",
+    //                                      numberOfNights: 7,
+    //                                      room: "Стандартный",
+    //                                      nutrition: "Все включено",
+    //                                      tourPrice: 234576,
+    //                                      fuelCharge: 2098,
+    //                                      serviceCharge: 4789)
+    //        getFullPrice()
+    //    }
     
     var request: URLRequest = {
         let urlString = "https://run.mocky.io/v3/e8868481-743f-4eb2-a0d7-2bc4012275c8"
@@ -51,7 +53,7 @@ class BookingViewModel: ObservableObject {
         switch response {
         case .success(let success):
             Task { @MainActor in
-//                bookingDetails = success
+                bookingDetails = success
                 getFullPrice()
             }
         case .failure(let failure):

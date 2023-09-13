@@ -33,7 +33,7 @@ struct TouristInformationItemView: View {
         .frame(height: 50)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal)
-        .background((linkToData == "" && isValid) ? .red.opacity(0.1) : Color(hex: 0xF6F6F9))
+        .background((linkToData == "" && !isValid) ? .red.opacity(0.1) : Color(hex: 0xF6F6F9))
         .cornerRadius(10)
     }
 }

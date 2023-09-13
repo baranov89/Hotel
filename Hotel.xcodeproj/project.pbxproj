@@ -88,7 +88,7 @@
 		79A10D1E2AA8993300A5157B /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		79A10D202AA8C69200A5157B /* AdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressView.swift; sourceTree = "<group>"; };
 		79A10D222AA8CDBF00A5157B /* Color+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extension.swift"; sourceTree = "<group>"; };
-		79A10D632AA8DC1400A5157B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		79A10D632AA8DC1400A5157B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79B84B662AB1D348009DE05E /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		79B84B682AB1D39C009DE05E /* Fields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fields.swift; sourceTree = "<group>"; };
 		79B84B6A2AB1D3BE009DE05E /* Redax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redax.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 			children = (
 				792DDA482AA91920007EBC39 /* HotelsViewModel */,
 				7959FD7D2AAB7F4200F89DCC /* RoomsViewModel */,
-				79469B7B2AAEF8470095D314 /* BookingViewModel */,
 				7959FD872AADDD3000F89DCC /* SupportViewModel */,
 			);
 			path = ModelView;
@@ -170,7 +169,6 @@
 				7959FD782AAB612300F89DCC /* RoomsView */,
 				79469B772AAEF7E80095D314 /* BookingView */,
 				79469BA42AB05D6C0095D314 /* PaymentView */,
-				7959FD8A2AAE37A000F89DCC /* SupportView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				79469B792AAEF83D0095D314 /* BookingView.swift */,
+				7959FD8A2AAE37A000F89DCC /* SupportView */,
 				79469BA02AB042D20095D314 /* ItemView */,
 				79469B812AAEFDB10095D314 /* TourInformationView.swift */,
 				79469B852AAF0BEF0095D314 /* BuyerInformationView.swift */,
@@ -232,6 +231,7 @@
 		79469BA02AB042D20095D314 /* ItemView */ = {
 			isa = PBXGroup;
 			children = (
+				79469B7B2AAEF8470095D314 /* BookingViewModel */,
 				79469B832AAF07F00095D314 /* TourInformationItemView.swift */,
 				79469B952AAF32F60095D314 /* TouristInformationItemView.swift */,
 			);
@@ -312,9 +312,9 @@
 			children = (
 				79469B972AAF7C500095D314 /* TagsView.swift */,
 				7959FD882AAE379C00F89DCC /* PriceView.swift */,
+				79A10D202AA8C69200A5157B /* AdressView.swift */,
 				7959FD8B2AAE3B3D00F89DCC /* NameView.swift */,
 				79A10D1E2AA8993300A5157B /* RatingView.swift */,
-				79A10D202AA8C69200A5157B /* AdressView.swift */,
 				79A10D1C2AA8851F00A5157B /* CaruselView.swift */,
 			);
 			path = SupportView;
@@ -323,6 +323,7 @@
 		79A10CDC2AA852C800A5157B = {
 			isa = PBXGroup;
 			children = (
+				79A10D632AA8DC1400A5157B /* Info.plist */,
 				79A10CE72AA852C900A5157B /* Hotel */,
 				79A10CE62AA852C900A5157B /* Products */,
 			);
@@ -339,7 +340,6 @@
 		79A10CE72AA852C900A5157B /* Hotel */ = {
 			isa = PBXGroup;
 			children = (
-				79A10D632AA8DC1400A5157B /* Info.plist */,
 				79A10CE82AA852C900A5157B /* HotelApp.swift */,
 				79469BA72AB06BDA0095D314 /* Coordinator */,
 				792DDA452AA918C9007EBC39 /* Model */,
@@ -600,7 +600,7 @@
 				DEVELOPMENT_TEAM = 5HDJ6MMFHG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Hotel/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -630,7 +630,7 @@
 				DEVELOPMENT_TEAM = 5HDJ6MMFHG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Hotel/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

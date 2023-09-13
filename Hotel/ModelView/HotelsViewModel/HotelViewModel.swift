@@ -21,7 +21,7 @@ class HotelViewModel: ObservableObject {
                            rating: 5,
                            ratingName: "Превохдодн",
                            imageUrls: ["https://www.tourdom.ru/upload/iblock/660/660d38b83f5a0f8985003dbe89584d6a.jpg", "https://princeparkhotel.ru/upload/resize_cache/iblock/532/1900_840_2/5325923d49888f7962d0d1abefcbe38d.jpg", "https://cdn.ostrovok.ru/t/640x400/extranet/8a/2b/8a2b0372d32cdd92db77eb31a44794ed686f974e.png"],
-                           aboutTheHotel: AboutTheHotel(description: "стандарт", peculiarities: ["первая береговая линия","кондиционер","беспроводной интернет"]))
+                           aboutTheHotel: AboutTheHotel(description: "Новый отель на береговой линии", peculiarities: ["Первая береговая линия", "Кондиционер", "Парковка", "Беспроводной интернет"]))
     }
     
     var request: URLRequest = {

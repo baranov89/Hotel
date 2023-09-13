@@ -32,8 +32,8 @@ struct HotelDetailsItemView: View {
     }
 }
 
-//struct HotrlDetailsItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HotrlDetailsItemView()
-//    }
-//}
+struct HotrlDetailsItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        HotelDetailsItemView(image: "q", title: "отель", text: "номер")
+    }
+}

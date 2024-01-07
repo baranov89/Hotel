@@ -7,3 +7,4 @@ Using Hotel, you can register hotel guests by entering their details, check-in a
 
 Although the app's functionality is limited, it can be useful for those looking for information about hotel rooms or wanting to quickly register guests.
 
+![Image alt](https://github.com/baranov89/TruthOrDare/blob/main/TruthOrDareTwo.png)

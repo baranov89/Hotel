@@ -8,7 +8,7 @@ Using Hotel, you can register hotel guests by entering their details, check-in a
 Although the app's functionality is limited, it can be useful for those looking for information about hotel rooms or wanting to quickly register guests.
 
 ![Image alt](https://github.com/baranov89/Hotel/blob/main/Hotel1.png)
-![Image alt](https://github.com/baranov89/Hotel/blob/main/Hotel2.png)
-![Image alt](https://github.com/baranov89/Hotel/blob/main/Hotel3.png)
 ![Image alt](https://github.com/baranov89/Hotel/blob/main/Hotel4.png)
+![Image alt](https://github.com/baranov89/Hotel/blob/main/Hotel3.png)
+![Image alt](https://github.com/baranov89/Hotel/blob/main/Hotel2.png)
 ![Image alt](https://github.com/baranov89/Hotel/blob/main/Hotel5.png)
